@@ -15,7 +15,60 @@
   </nav>
   <main>
     <h1>My Art</h1>
-    <p>Showcase your artwork here.</p>
+
+    <div class="slideshow">
+      <button class="arrow arrow-left" id="prevBtn" aria-label="Previous image">&#10094;</button>
+
+      <div class="slide-frame">
+        <img id="slideImg" src="" alt="">
+      </div>
+
+      <button class="arrow arrow-right" id="nextBtn" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <p id="slideCaption" class="caption"></p>
+    <p id="slideCounter" class="counter"></p>
   </main>
+
+  <script>
+    const images = [
+      "Fumi Zorua.png",
+      "emboar.png",
+      "Gem.jpeg",
+      "Kamilla artfight.png",
+      "Jarona.png",
+      "Ja-Orange!.png",
+      "Iris.png",
+      "volcarona.png",
+      "ribombee new.png",
+      "ribombee axe.png",
+      "ribombee 1.png",
+      "iron valiant 2.png"
+    ];
+
+    let current = 0;
+    const img = document.getElementById("slideImg");
+    const caption = document.getElementById("slideCaption");
+    const counter = document.getElementById("slideCounter");
+
+    function showSlide(index) {
+      current = (index + images.length) % images.length;
+      const file = images[current];
+      img.src = "images/" + encodeURIComponent(file);
+      img.alt = file;
+      caption.textContent = file;
+      counter.textContent = (current + 1) + " / " + images.length;
+    }
+
+    document.getElementById("prevBtn").addEventListener("click", () => showSlide(current - 1));
+    document.getElementById("nextBtn").addEventListener("click", () => showSlide(current + 1));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") showSlide(current - 1);
+      if (e.key === "ArrowRight") showSlide(current + 1);
+    });
+
+    showSlide(0);
+  </script>
 </body>
 </html>
