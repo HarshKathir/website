@@ -110,14 +110,13 @@ p {
 }
 
 .accomplishment-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  align-self: flex-end;
+  margin-right: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 180px;
+  width: 320px;
 }
 
 .badge-photo {
