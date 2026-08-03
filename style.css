@@ -112,6 +112,7 @@ p {
 .badge-row {
   align-self: flex-end;
   display: flex;
+  flex-direction: column;
   gap: 5rem;
   margin-right: 1.5rem;
 }
